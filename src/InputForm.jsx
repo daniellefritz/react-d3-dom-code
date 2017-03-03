@@ -15,8 +15,9 @@ class InputForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A year was submitted: ' + this.state.value);
     event.preventDefault();
+    const { captureYear } = this.props;
+    captureYear(this.state.value);
   }
 
   render() {
