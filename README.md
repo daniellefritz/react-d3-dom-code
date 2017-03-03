@@ -3,8 +3,8 @@
 This is example code to show how you can use React with D3.
 
 To start this app:
-npm install
-npm run app
+- npm install
+- npm run app
 
 The local site will show up on localhost:8081
 
