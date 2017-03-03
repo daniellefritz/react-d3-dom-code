@@ -3,6 +3,7 @@
 This is example code to show how you can use React with D3.
 
 To start this app:
+- git clone git@github.com:daniellecloss/react-d3-dom-code.git
 - npm install
 - npm run app
 
