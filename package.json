@@ -1,0 +1,32 @@
+{
+  "name": "react-d3-dom-code",
+  "version": "0.0.1",
+  "description": "An example app for using React with D3",
+  "main": "src/index.jsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app": "./node_modules/.bin/webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniellecloss/react-d3-dom-code.git"
+  },
+  "author": "Danielle Closs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daniellecloss/react-d3-dom-code/issues"
+  },
+  "homepage": "https://github.com/daniellecloss/react-d3-dom-code#readme",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  }
+}
