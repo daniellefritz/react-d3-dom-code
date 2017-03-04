@@ -11,23 +11,32 @@ class ChartAxis extends React.Component {
   }
 
   renderAxis() {
-    var node  = this.refs.axis;
-    var axis = d3.axisLeft(this.props.yScale);
-    // this is D3 manipulating the DOM; because of the complexity of the
+    const { scale, orient } = this.props;
+    const axisRef = `axis${orient}`;
+    const node  = this.refs[axisRef];
+
+    let axis = d3.axisLeft(scale);
+    if (this.props.orient === 'x') {
+      axis = d3.axisBottom(scale);
+    }
+
+    // This is D3 manipulating the DOM; because of the complexity of the
     // scale calculation, it would be better to use D3 for this, even at
     // the cost of the performance hit
+    //
+    // node is the react node, D3 is calling the correct axis to be applied
+    // to this node
     d3.select(node).call(axis);
   }
 
   render() {
-    const ySettings = {
-      scale: this.props.yScale,
-      orient: 'left'
-    };
+    const { scale, orient, translate } = this.props;
+    const settings = { scale, orient };
+    const className = `axis--${orient}`;
+    const ref = `axis${orient}`;
+
     return (
-      <g className="xy-axis" height={this.props.height} width={this.props.width}>
-        <g className="axis axis--y" ref="axis" transform={this.props.translate} {...ySettings}></g>
-      </g>
+      <g className={className} ref={ref} transform={translate} {...settings}></g>
     );
   }
 }

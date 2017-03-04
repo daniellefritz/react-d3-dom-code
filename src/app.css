@@ -23,6 +23,9 @@ form {
 }
 #bar_chart{
 	padding-left: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
     padding-top: 20px;
+}
+.axis--x path {
+  display: none;
 }
