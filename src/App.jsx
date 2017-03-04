@@ -12,7 +12,7 @@ class App extends React.Component {
     this.captureYear = this.captureYear.bind(this);
 
     this.state = {
-      yearValue: 2015,
+      yearValue: '',
       chartWidth: 500,
       chartHeight: 300,
       salesData: [],
@@ -26,6 +26,7 @@ class App extends React.Component {
     }
     this.setState({
       salesData: data,
+      yearValue: year
     });
   }
 
