@@ -21,6 +21,13 @@ class BarChart extends React.Component {
     const height = this.state.height - (margin.top + margin.bottom);
     const data = this.state.data;
     const transform = 'translate(' + margin.left + ',' + margin.top + ')';
+    const tempArray = [];
+    data.forEach(function(elm) {
+        tempArray.push(elm.value);
+    });
+    const maxDataPoint = tempArray.reduce(function(a, b) {
+        return Math.max(a, b);
+    });
 
     // The DOM manipulations here are handled by React (virtual DOM),
     // and D3 is doing the rest (xScale and yScale)
@@ -31,7 +38,7 @@ class BarChart extends React.Component {
 
     const yScale = d3
       .scaleLinear()
-      .domain([0, 100])
+      .domain([0, maxDataPoint])
       .range([height, 0]);
 
     // These are sub-components to build up the bar chart; we are using the
