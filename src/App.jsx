@@ -38,15 +38,16 @@ class App extends React.Component {
 
   render () {
     const {chartHeight, chartWidth, salesData} = this.state;
+
     return (
       <section>
         <h1>Welcome to <span>WE MAKE WIDGETS&reg;</span> online!</h1>
         <p>For all your <span>WIDGET&reg;</span> needs, come to us first!  We have a proven track record, and can fulfill your <span>WIDGET&reg;</span> needs, under budget with fast delivery!</p>
         <InputForm captureYear={this.captureYear}/>
         <BarChart
-          height={chartHeight}
-          width={chartWidth}
-          data={salesData}
+          height = {chartHeight}
+          width = {chartWidth}
+          data = {salesData}
         />
       </section>
     );
