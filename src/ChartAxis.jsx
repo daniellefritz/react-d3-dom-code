@@ -26,11 +26,7 @@ class ChartAxis extends React.Component {
     };
     return (
       <g className="xy-axis" height={this.props.height} width={this.props.width}>
-<<<<<<< HEAD
         <g className="axis axis--y" ref="axis" transform={this.props.translate} {...ySettings}></g>
-=======
-        <g className="axis" ref="axis" transform={this.props.translate} {...ySettings}></g>
->>>>>>> ac2727bf8d9fa2c5a68ec6882e5f01d0226aad4e
       </g>
     );
   }
