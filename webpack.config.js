@@ -11,7 +11,7 @@ var config = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.json']
   },
   module : {
     loaders : [
@@ -24,6 +24,10 @@ var config = {
         test: /\.css$/,
         loader: "style-loader!css-loader"
       },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      }
     ]
   }
 };
