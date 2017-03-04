@@ -31,7 +31,7 @@ class App extends React.Component {
   }
 
   render () {
-    const {chartHeight, chartWidth, yearValue, salesData, year} = this.state;
+    const {chartHeight, chartWidth, yearValue, salesData} = this.state;
 
     return (
       <section>
