@@ -24,7 +24,7 @@ class InputForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Enter a year to see past sales:<br/>
+          Enter a year to see past sales:&nbsp;
           <input type="number" value={this.state.value} onChange={this.handleChange} />
         </label>&nbsp;
         <input type="submit" value="Submit" />

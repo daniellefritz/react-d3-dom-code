@@ -11,10 +11,10 @@ class App extends React.Component {
     this.captureYear = this.captureYear.bind(this);
 
     this.state = {
-    	yearValue: 2015,
-		  chartWidth: 500,
-		  chartHeight: 300,
-    	testData: [
+      yearValue: '',
+      chartWidth: 500,
+      chartHeight: 300,
+      salesData: [
         { month: 'Jan', value: 40 },
         { month: 'Feb', value: 50 },
         { month: 'Mar', value: 65 },
@@ -31,26 +31,26 @@ class App extends React.Component {
     };
   }
 
-	captureYear(year) {
+  captureYear(year) {
     this.setState({ yearValue: year });
     console.log("Year Selected: " + year);
   }
 
-	render () {
-		const {chartHeight, chartWidth, yearValue, testData} = this.state;
-		return (
-			<section>
-				<h1>Welcome to <span>WE MAKE WIDGETS&reg;</span> online!</h1>
-				<p>For all your <span>WIDGET&reg;</span> needs, come to us first!  We have a proven track record, and can fulfill your <span>WIDGET&reg;</span> needs, under budget with fast delivery!</p>
-				<InputForm captureYear={this.captureYear}/>
-				<BarChart
-					height={chartHeight}
-					width={chartWidth}
-					data={testData}
-				/>
-			</section>
-		);
-	}
+  render () {
+    const {chartHeight, chartWidth, salesData} = this.state;
+    return (
+      <section>
+        <h1>Welcome to <span>WE MAKE WIDGETS&reg;</span> online!</h1>
+        <p>For all your <span>WIDGET&reg;</span> needs, come to us first!  We have a proven track record, and can fulfill your <span>WIDGET&reg;</span> needs, under budget with fast delivery!</p>
+        <InputForm captureYear={this.captureYear}/>
+        <BarChart
+          height={chartHeight}
+          width={chartWidth}
+          data={salesData}
+        />
+      </section>
+    );
+  }
 }
 
 render(<App/>, document.getElementById('mount-point'));
