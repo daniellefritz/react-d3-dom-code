@@ -13,6 +13,15 @@ form {
 	background-color: #ddd;
 	padding: 2%;
 	text-align: left;
+	height: 15%;
+	margin: 1% 0 0;
+}
+.bar_chart_container {
 	height: 50%;
-	margin-top:1%;
+	background-color: #ddd;
+	padding: 2%;
+}
+#bar_chart{
+	padding-left: 20px;
+    padding-bottom: 20px;
 }
