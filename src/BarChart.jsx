@@ -12,16 +12,6 @@ class BarChart extends React.Component {
     };
   }
 
-  componentWillUpdate(nextProps) {
-    // Compare props to make sure you don't get an infinite loop
-    // of React redrawing the component
-    if (this.props !== nextProps) {
-      this.setState({
-        data: nextProps.data,
-      });
-    }
-  }
-
   render() {
     const margin = { top: 5, right: 5, bottom: 5, left: 5 };
     const padding = 4;
