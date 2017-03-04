@@ -11,7 +11,7 @@ class App extends React.Component {
     this.captureYear = this.captureYear.bind(this);
   }
 
-	captureYear(year) {
+  captureYear(year) {
     this.setState({yearValue: year});
     console.log("Year Selected: " + year);
   }
