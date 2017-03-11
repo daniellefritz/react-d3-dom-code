@@ -44,7 +44,7 @@ class BarChart extends React.Component {
       const yScale = d3
         .scaleLinear()
         .domain([0, maxDataPoint])
-        .range([height, 0]);
+        .rangeRound([height, 0]);
 
       // This is the sub-component that contains the bars for the bar graph
       const rectangles = (data).map(function(d, i) {
@@ -97,7 +97,7 @@ class BarChart extends React.Component {
     } else {
       // This is an early return, to account for no data in the data array (the data array
       // that that was passed into the BarChart component)
-      return (<div>No Data to Display</div>);
+      return (<div className = "bar_chart_container">No Data to Display</div>);
     }
   }
 }
