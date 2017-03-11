@@ -54,7 +54,7 @@ class BarChart extends React.Component {
       const yScale = d3
         .scaleLinear()
         .domain([0, maxDataPoint])
-        .range([height, 0]);
+        .rangeRound([height, 0]);
 
       // This is the sub-component that contains the bars for the bar graph
       const rectangles = (data).map(function(d, i) {
