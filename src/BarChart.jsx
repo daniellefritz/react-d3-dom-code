@@ -32,17 +32,6 @@ class BarChart extends React.Component {
     const bottomTransform = 'translate(' + margin.left + ',' + (margin.top + height) + ')';
 
     if (data.length > 0) {
-      // The code below figures out the highest number in the y scale, so we can pass
-      // that to the ChartAxis component (in the return below)
-      const dataPoints = [];
-      let maxDataPoint = 0;
-      data.forEach(function(elm) {
-        dataPoints.push(elm.value);
-      });
-      maxDataPoint = dataPoints.reduce(function(a, b) {
-        return Math.max(a, b);
-      });
-
       // The DOM manipulations (here in this render) are handled by React (virtual DOM);
       // React handles the data, and feeds the data to the react data
       // visualization elements, and D3 is doing the rest (xScale and yScale)
@@ -53,7 +42,7 @@ class BarChart extends React.Component {
 
       const yScale = d3
         .scaleLinear()
-        .domain([0, maxDataPoint])
+        .domain([0, d3.max(data, function(d) { return d.value; })])
         .rangeRound([height, 0]);
 
       // This is the sub-component that contains the bars for the bar graph
