@@ -2,32 +2,11 @@ import React from 'react';
 import * as d3 from "d3";
 import ChartAxis from './ChartAxis';
 
-class BarChart extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      width: props.width,
-      height: props.height,
-      data: props.data,
-    };
-  }
-
-  componentWillUpdate(nextProps) {
-    // Compare props to make sure you don't get an infinite loop
-    // of React redrawing the component
-    if (this.props !== nextProps) {
-      this.setState({
-        data: nextProps.data,
-      });
-    }
-  }
-
-  render() {
-    const margin = { top: 5, right: 5, bottom: 5, left: 5 };
+const BarChart = ({ width, height, data }) => {
+    const margin = { top: 0, right: 5, bottom: 5, left: 5 };
     const padding = 4;
-    const width = this.state.width - (margin.left + margin.right);
-    const height = this.state.height - (margin.top + margin.bottom);
-    const data = this.state.data;
+    const calculatedWidth = width - (margin.left + margin.right);
+    const calculatedHeight = height - (margin.top + margin.bottom);
     const transform = 'translate(' + margin.left + ',' + margin.top + ')';
     const bottomTransform = 'translate(' + margin.left + ',' + (margin.top + height) + ')';
 
@@ -67,8 +46,8 @@ class BarChart extends React.Component {
         <div className = "bar_chart_container">
           <svg
             id = 'bar_chart'
-            width = {width}
-            height = {height}
+            width = {calculatedWidth}
+            height = {calculatedHeight}
           >
             <g transform = {transform}>
               {rectangles}
@@ -99,6 +78,6 @@ class BarChart extends React.Component {
       return (<div className = "bar_chart_container">No Data to Display</div>);
     }
   }
-}
+
 
 export default BarChart;
