@@ -17,12 +17,12 @@ const BarChart = ({ width, height, data }) => {
       const xScale = d3
         .scaleBand()
         .domain(data.map(function(d) {return d.month}))
-        .rangeRound([0, width], .35);
+        .rangeRound([0, calculatedWidth], .35);
 
       const yScale = d3
         .scaleLinear()
         .domain([0, d3.max(data, function(d) { return d.value; })])
-        .rangeRound([height, 0]);
+        .rangeRound([calculatedHeight, 0]);
 
       // This is the sub-component that contains the bars for the bar graph
       const rectangles = (data).map(function(d, i) {
@@ -33,7 +33,7 @@ const BarChart = ({ width, height, data }) => {
             x = {xScale(d.month)}
             y = {yScale(d.value)}
             className = "bar"
-            height = {height - yScale(d.value)}
+            height = {calculatedHeight - yScale(d.value)}
             width = {(xScale.range()[1] / data.length) - padding}
           />
         )
@@ -57,16 +57,16 @@ const BarChart = ({ width, height, data }) => {
               orient = 'y'
               scale = {yScale}
               translate = {transform}
-              width = {width}
-              height = {height}
+              width = {calculatedWidth}
+              height = {calculatedHeight}
             />
 
             <ChartAxis
               orient = 'x'
               scale = {xScale}
               translate = {bottomTransform}
-              width = {width}
-              height = {height}
+              width = {calculatedWidth}
+              height = {calculatedHeight}
             />
 
           </svg>
